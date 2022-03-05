@@ -22,7 +22,8 @@ sudo docker run -e USR=rest -e PASS=bartolomeo -e HOST=172.18.0.1 -d -p 8013:801
 
 sudo apt-get install mysql-server
 sudo mysql -u'usuario' -p'contraseña'
-	source repositorio_imagenes.db.sql
+	source repositorio_imagenes_1.sql
+source repositorio_imagenes_2.sql
 
 	CREATE USER 'rest'@'%' IDENTIFIED BY 'bartolomeo';
 	GRANT ALL PRIVILEGES ON *.* TO 'rest'@'%';
