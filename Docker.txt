@@ -45,3 +45,8 @@ abrir puertos 8013,21,40000-50000
 ftp https://www.hostinger.co/tutoriales/como-configurar-servidor-ftp-en-ubuntu-vps/
 
 
+Detener y borrar docker
+sudo docker stop id
+sudo docker rm id
+
+
