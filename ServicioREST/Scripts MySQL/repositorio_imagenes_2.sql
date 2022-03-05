@@ -1,4 +1,4 @@
-﻿USE repositorioNuevo ;
+﻿USE repositorionuevo ;
 
 ALTER TABLE Imagenes ADD EsViolenta INTEGER DEFAULT 1 NOT NULL;
 

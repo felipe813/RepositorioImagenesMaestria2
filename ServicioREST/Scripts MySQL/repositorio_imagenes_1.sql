@@ -1,6 +1,6 @@
-DROP DATABASE repositorioNuevo;
-CREATE DATABASE repositorioNuevo;
-USE repositorioNuevo ;
+DROP DATABASE repositorionuevo;
+CREATE DATABASE repositorionuevo;
+USE repositorionuevo ;
 
 CREATE TABLE  Imagenes (
 	Id	INTEGER PRIMARY KEY AUTO_INCREMENT,
