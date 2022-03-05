@@ -1,5 +1,5 @@
 Username: felipe813
-Password: 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
+
 
 ip a list 
 #para saber direccion ip-> inet .... scope global eth (172.18.0.2)
@@ -13,7 +13,7 @@ sudo apt install curl
 sudo curl -sSL https://get.docker.com | sudo sh
 sudo mkdir proyecto
 cd proyecto
-sudo git clone https://github.com/felipe813/RepositorioImagenesMaestria.git
+sudo git clone https://github.com/felipe813/RepositorioImagenesMaestria2.git
 cd RepositorioImagenesMaestria
 sudo git checkout master
 sudo docker build –t servicioimagenes .

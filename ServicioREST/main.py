@@ -259,6 +259,19 @@ def get_imagenes_random_nivel(cantidad , nivelViolencia):
     imagenes = dao.GetRandomImagenesNivelViolencia(cantidad,nivelViolencia)
     return jsonify({'Imagenes': imagenes })
 
+@app.route('/api/imagenesRandomViolencia/<violenta>/<cantidad>',methods=['GET'])
+def get_imagenes_random_es_violenta(violenta,cantidad):
+    app.logger.warning('get_imagenes')
+    #imagenes = [ imagen.json() for imagen in Imagen.query.all() ]  
+    imagenes = dao.GetRandomImagenesEsViolenta(violenta,cantidad)
+    return jsonify({'Imagenes': imagenes })
+
+@app.route('/api/imagenesRandomViolencia/<violenta>/<cantidad>/<nivelViolencia>',methods=['GET'])
+def get_imagenes_random_es_vioenta_nivel(violenta, cantidad , nivelViolencia):
+    app.logger.warning('get_imagenes')
+    imagenes = dao.GetRandomImagenesEsViolentaNivelViolencia(violenta,cantidad,nivelViolencia)
+    return jsonify({'Imagenes': imagenes })
+
 
 @app.route('/api/recorridos', methods=['POST'])
 def create_recorrido():
@@ -365,8 +378,8 @@ if __name__ == '__main__':
         usuario = sys.argv[1]
         passs = sys.argv[2]
         host = sys.argv[3]
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+usuario+':'+passs+'@'+host+'/repositorio'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+usuario+':'+passs+'@'+host+'/repositorionuevo'
         app.run('0.0.0.0',port=8013)
     else:
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bartolomeo@localhost/repositorio'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bartolomeo@localhost/repositorionuevo'
         app.run(debug=True)

@@ -11,6 +11,7 @@ class Imagen(db.Model):
     Direccion = db.Column(db.String(200), nullable=False) 
     Fuente = db.Column(db.String(800), nullable=True) 
     NivelViolencia = db.Column(db.Integer)
+    EsViolenta = db.Column(db.Integer)
 
     MetadatoImagen = db.relationship('MetadatoImagen')
 
@@ -21,6 +22,7 @@ class Imagen(db.Model):
             'Direccion': self.Direccion,
             'Fuente': self.Fuente,
             'NivelViolencia': self.NivelViolencia,
+            'EsViolenta': self.EsViolenta,
             'Metadata':[metadato.json() for metadato in self.MetadatoImagen]
         }
 
