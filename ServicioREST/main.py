@@ -372,6 +372,24 @@ def actualizar_ftp():
     else:
         return jsonify({'message': 'Bad request'}), 400
 
+@app.route('/api/ComentarioTest', methods=['POST'])
+def create_comentario():
+    json = request.get_json(force=True)
+    if json.get('Comentario') is None :
+        return jsonify({'message': 'Bad request1'}), 400
+
+    respuesta = dao.InsertarComentario(json['Comentario'])
+
+    if respuesta is not False:
+        return jsonify({'Comentario': respuesta.json() })
+    else:
+        return jsonify({'message': 'Bad request5'}), 400
+
+@app.route('/api/ComentarioTest',methods=['GET'])
+def get_comentarios():
+    tiempos = dao.GetComentarios()
+    return jsonify({'Comentarios': tiempos })
+
 if __name__ == '__main__':
     app.config['JSON_AS_ASCII'] = False
     if(len(sys.argv) >= 4):

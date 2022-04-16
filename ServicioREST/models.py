@@ -189,4 +189,17 @@ class Configuraciones(db.Model):
         }
 
 
+class ComentarioTest(db.Model):
+    __tablename__ = 'ComentarioTest'
 
+    Id = db.Column(db.Integer, primary_key=True,autoincrement=True)
+    #FechaRecorrido = db.Column(db.DateTime, default=db.func.current_timestamp())
+    Fecha = db.Column(db.String(100), nullable=False) 
+    Comentario = db.Column(db.String(500), nullable=False) 
+    
+    def json(self):
+        return {
+            'Id': self.Id,
+            'Fecha': self.Fecha,
+            'Comentario': self.Comentario
+        }

@@ -9,6 +9,7 @@ from models import ImagenRecorrido
 from models import PreguntaTest
 from models import RespuestaPregunta
 from models import TiempoRecorrido
+from models import ComentarioTest
 
 from sqlalchemy import func
 import time
@@ -375,3 +376,17 @@ class DAO():
         except Exception as e: 
             print("ERROR: "+str(e))
             return False
+
+    def GetComentarios(self):
+            return  [ comentario.json() for comentario in ComentarioTest.query.all() ]  
+
+    def InsertarComentario (self,comentario):
+        now = datetime.now()
+        comentarioTest = ComentarioTest(Fecha = now,Comentario = comentario)
+        try:
+                db.session.add(comentarioTest)
+                db.session.commit()                          
+                return comentarioTest
+        except Exception as e: 
+                print("ERROR: "+str(e))
+                return False
